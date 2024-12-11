@@ -1,0 +1,15 @@
+[project]
+authors = ["Wolf Vollprecht <w.vollprecht@gmail.com>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "pixi-cuda"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+compile = "nvcc src/main.cu -o vector_add"
+start = { cmd = "./vector_add", depends-on = ["compile"] }
+
+
+[dependencies]
+cuda-compiler = ">=12.6.3,<13"
